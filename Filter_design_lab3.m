@@ -1,0 +1,22 @@
+clear all;
+close all;
+clc
+W = 0 : 0.01 : 100;
+W0 = sqrt(0.5279);
+num = [0.5279];
+den = [1 1.0275 0.5279];
+tf = freqs(num, den, W);
+phase = angle(tf)*180/pi;
+mag = abs(tf);
+subplot(2,1,1);
+semilogx(W,mag);
+title('Magnitude Response');
+xlabel('Frequency(rad/sec)');
+ylabel('Magnitude(dB)');
+grid on;
+subplot(2,1,2);
+semilogx(W,phase);
+title('Phase Response');
+xlabel('Frequency(rad/sec)');
+ylabel('Phase(rad)');
+grid on;

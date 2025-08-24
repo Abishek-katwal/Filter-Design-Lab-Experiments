@@ -1,0 +1,20 @@
+clear all;
+close all; 
+clc;
+R=1000;
+C=10^-6;
+W=0:50000;
+mag=1./(sqrt(1+(R*C*W).^2));
+subplot(2,1,1);
+semilogx(W,mag); %logscale along x-axis to visualize larger value to smaller value
+title('Magnitude Response');
+xlabel('Frequency(rad/sec)');
+ylabel('magnitude');
+grid on;
+phase=-atan((R*W*C)).*180/pi;
+subplot(2,1,2);
+semilogx(W,phase);
+title('phase Response');
+xlabel('Frequency(rad/sec)');
+ylabel('phase(rad)');
+grid on;
